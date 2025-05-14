@@ -1,0 +1,383 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-r from-blue-800 to-red-800 text-white">
+  <!-- now full-width, with 1rem side padding -->
+  <div class="mt-16 w-full px-4 py-8">
+
+  <!-- Page Title & Intro -->
+  <h1 class="text-3xl font-bold mb-4">EU Climate Targets</h1>
+  <p class="text-white-500 mb-8">
+    Binding EU-wide goals for greenhouse-gases, energy, and land-use. See where we started, where we aim to go, and how far we’ve come.
+  </p>
+
+   <!-- 2030 Targets Section -->
+  <section id="targets-2030" class="mb-12">
+    <h2 class="text-2xl font-semibold mb-2">2030 Targets</h2>
+    {% set prog_2030 = 67.8 %}
+    {% set hue_2030  = (prog_2030 / 100) * 120 %}
+    <p class="text-white-600 mb-6">
+      Reduce net greenhouse-gas emissions by at least 55% compared to 1990 levels by 2030.
+    </p>
+    <div class="bg-white rounded-2xl shadow-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Left: Raw numbers -->
+      <div>
+        <p class="mb-2 text-gray-600">Baseline (1990)</p>
+        <p class="text-xl font-medium text-black">4 635 248 kt CO₂-eq</p>
+
+        <p class="mb-2 text-gray-600">Latest (2023)</p>
+        <p class="text-xl font-medium text-black">2 907 204 kt CO₂-eq</p>
+
+        <p class="mb-2 text-gray-600">Reduction achieved</p>
+        <p class="text-2xl font-bold text-green-600">37.3 %</p>
+      </div>
+
+      <!-- Right: Progress toward target -->
+      <div class="flex flex-col justify-between">
+        <div>
+          <p class="mb-2 text-red-600">Target</p>
+          <p class="text-xl font-medium text-black mb-4">55 % reduction by 2030</p>
+
+          <p class="mb-2 text-gray-600">Progress</p>
+          <p class="text-2xl font-bold text-black">{{ prog_2030 }} %</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="w-full bg-gray-200 h-4 rounded-full overflow-hidden">
+          <div
+            class="h-full"
+            style="
+              width: {{ prog_2030 }}%;
+              background-color: hsl({{ hue_2030 }},100%,45%);
+            "
+          ></div>
+        </div>
+
+        <p class="text-sm text-gray-700 mt-2">
+          You’ve covered <span class="font-semibold text-gray-900">{{ prog_2030 }} %</span> of the way to the 2030 goal.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2040 Targets Section -->
+  <section id="targets-2040" class="mb-12">
+    <h2 class="text-2xl font-semibold mb-2">2040 Targets</h2>
+    {% set prog_2040 = 41.4 %}
+    {% set hue_2040  = (prog_2040 / 100) * 120 %}
+    <p class="text-white-600 mb-6">
+      Achieve a 90% reduction in net GHG emissions from 1990 levels by 2040.
+    </p>
+    <div class="bg-white rounded-2xl shadow-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Left: Raw numbers -->
+      <div>
+        <p class="mb-2 text-gray-600">Baseline (1990)</p>
+        <p class="text-xl font-medium text-black">4 635 248 kt CO₂-eq</p>
+
+        <p class="mb-2 text-gray-600">Latest (2023)</p>
+        <p class="text-xl font-medium text-black">2 907 204 kt CO₂-eq</p>
+
+        <p class="mb-2 text-gray-600">Reduction achieved</p>
+        <p class="text-2xl font-bold text-green-600">37.3 %</p>
+      </div>
+
+      <!-- Right: Progress toward target -->
+      <div class="flex flex-col justify-between">
+        <div>
+          <p class="mb-2 text-red-600">Target</p>
+          <p class="text-xl font-medium text-black mb-4">90 % reduction by 2040</p>
+
+          <p class="mb-2 text-gray-600">Progress</p>
+          <p class="text-2xl font-bold text-black">{{ prog_2040 }} %</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="w-full bg-gray-200 h-4 rounded-full overflow-hidden">
+          <div
+            class="h-full"
+            style="
+              width: {{ prog_2040 }}%;
+              background-color: hsl({{ hue_2040 }},100%,45%);
+            "
+          ></div>
+        </div>
+
+        <p class="text-sm text-gray-700 mt-2">
+          You’ve covered <span class="font-semibold text-gray-900">{{ prog_2040 }} %</span> of the way to the 2040 goal.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 2050 Targets Section (placeholder) -->
+  <!-- 2050 Targets Section (placeholder) -->
+  <section id="targets-2050" class="mb-12">
+  <h2 class="text-2xl font-semibold text-white mb-6">2050 Targets</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    {# Energy Efficiency with goal sentence and dynamic hue #}
+{% set energy_progress = 38.4 %}
+{% set energy_hue      = (energy_progress / 100) * 120 %}
+<div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+  <div class="flex items-center mb-2">
+    <img src="/static/icons/efficiency.svg" class="w-8 h-8 mr-3" alt="Efficiency icon">
+    <h3 class="text-xl font-semibold text-gray-900">Energy Efficiency</h3>
+  </div>
+  <p class="text-gray-700 text-sm mb-4">
+    Halve the EU’s primary energy consumption by 2050 compared to 2005.
+  </p>
+  
+  <dl class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-4">
+    <div>
+      <dt class="font-medium text-gray-800">Baseline (2005)</dt>
+      <dd class="text-gray-600">1 497.8 Mtoe</dd>
+    </div>
+    <div>
+      <dt class="font-medium text-gray-800">Latest (2023)</dt>
+      <dd class="text-gray-600">1 210.3 Mtoe</dd>
+    </div>
+    <div>
+      <dt class="font-medium text-gray-800">Reduction achieved</dt>
+      <dd class="text-green-600 font-bold">19.2 %</dd>
+    </div>
+  </dl>
+
+  <p class="text-sm text-gray-700 mb-2">
+    Progress toward 50 % cut: <strong class="text-gray-900">{{ energy_progress }} %</strong>
+  </p>
+
+  <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden mb-2">
+    <div
+      class="h-full"
+      style="
+        width: {{ energy_progress }}%;
+        background-color: hsl({{ energy_hue }}, 100%, 45%);
+      "
+    ></div>
+  </div>
+
+  <p class="text-xs text-gray-600">
+    You’ve achieved <span class="font-semibold text-gray-900">19.2 %</span> reduction so far, which is
+    <span class="font-semibold text-gray-900">{{ energy_progress }} %</span> of the way to the 2050 goal.
+  </p>
+</div>
+
+
+{# Deep GHG Reductions with goal sentence and dynamic hue #}
+{% set ghg_progress = 37.3 %}
+{% set ghg_hue      = (ghg_progress / 100) * 120 %}
+<div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+  <div class="flex items-center mb-2">
+    <img src="/static/icons/ghg.svg" class="w-8 h-8 mr-3" alt="GHG icon">
+    <h3 class="text-xl font-semibold text-gray-900">Deep GHG Reductions</h3>
+  </div>
+  <p class="text-gray-700 text-sm mb-4">
+    Achieve climate neutrality—net-zero greenhouse gas emissions—by 2050.
+  </p>
+
+  <dl class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-4">
+    <div>
+      <dt class="font-medium text-gray-800">Baseline (1990)</dt>
+      <dd class="text-gray-600">4 635 248 kt CO₂-eq</dd>
+    </div>
+    <div>
+      <dt class="font-medium text-gray-800">Latest (2023)</dt>
+      <dd class="text-gray-600">2 907 204 kt CO₂-eq</dd>
+    </div>
+    <div>
+      <dt class="font-medium text-gray-800">Reduction achieved</dt>
+      <dd class="text-green-600 font-bold">37.3 %</dd>
+    </div>
+  </dl>
+
+  <p class="text-sm text-gray-700 mb-2">
+    Progress toward <span class="font-semibold text-gray-900">100 % cut</span>:
+    <span class="font-semibold text-gray-900">{{ ghg_progress }} %</span>
+  </p>
+
+  <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden mb-2">
+    <div
+      class="h-full"
+      style="
+        width: {{ ghg_progress }}%;
+        background-color: hsl({{ ghg_hue }}, 100%, 45%);
+      "
+    ></div>
+  </div>
+
+  <p class="text-xs text-gray-600">
+    Achieved <span class="font-semibold text-gray-900">{{ ghg_progress }} %</span> reduction so far, which is
+    <span class="font-semibold text-gray-900">{{ ghg_progress }} %</span> of the way to net-zero by 2050.
+  </p>
+</div>
+
+
+{# Renewables Deployment with goal sentence and dynamic hue #}
+{% set renewables_baseline      = 9.506 %}
+{% set renewables_baseline_year = 2004 %}
+{% set renewables_current       = 24.554 %}
+{% set renewables_current_year  = 2023 %}
+{% set renewables_target        = 80 %}
+{% set renewables_progress      = (renewables_current / renewables_target) * 100 %}
+{% set renewables_hue           = (renewables_progress / 100) * 120 %}
+{% set renewables_increase      = renewables_current - renewables_baseline %}
+<div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+  <div class="flex items-center mb-2">
+    <img src="/static/icons/renewables.svg" class="w-8 h-8 mr-3" alt="Renewables icon">
+    <h3 class="text-xl font-semibold text-gray-900">Renewables Deployment</h3>
+  </div>
+  <p class="text-gray-700 text-sm mb-4">
+    Reach at least an 80 % share of electricity from renewables by 2050.
+  </p>
+
+  <dl class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-4">
+    <div>
+      <dt class="font-medium text-gray-800">Baseline ({{ renewables_baseline_year }})</dt>
+      <dd class="text-gray-600">{{ renewables_baseline }} %</dd>
+    </div>
+    <div>
+      <dt class="font-medium text-gray-800">Latest ({{ renewables_current_year }})</dt>
+      <dd class="text-gray-600">{{ renewables_current }} %</dd>
+    </div>
+    <div>
+      <dt class="font-medium text-gray-800">Increase achieved</dt>
+      <dd class="text-green-600 font-bold">{{ renewables_increase|round(2) }} %</dd>
+    </div>
+  </dl>
+
+  <p class="text-sm text-gray-700 mb-2">
+    Progress toward <span class="font-semibold text-gray-900">{{ renewables_target }} % share</span>:
+    <span class="font-semibold text-gray-900">{{ renewables_progress|round(1) }} %</span>
+  </p>
+
+  <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden mb-2">
+    <div
+      class="h-full"
+      style="
+        width: {{ renewables_progress }}%;
+        background-color: hsl({{ renewables_hue }}, 100%, 45%);
+      "
+    ></div>
+  </div>
+
+  <p class="text-xs text-gray-600">
+    You’ve increased renewables by <span class="font-semibold text-gray-900">{{ renewables_increase|round(2) }} %</span>,
+    which is <span class="font-semibold text-gray-900">{{ renewables_progress|round(1) }} %</span> of the way to the 2050 goal.
+  </p>
+</div>
+
+
+
+    {# Energy Import Dependence with dynamic hue #}
+{% set consumption_2023    = 1208.2 %}
+{% set imports_2023        = 775.9 %}
+{% set import_share        = (imports_2023 / consumption_2023) * 100 %}
+{% set domestic_share      = 100 - import_share %}
+{% set target_domestic     = 80 %}
+{% set progress_import     = (domestic_share / target_domestic) * 100 %}
+{% set hue_import          = (progress_import / 100) * 120 %}
+
+<div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+  <div class="flex items-center mb-2">
+    <img src="/static/icons/imports.svg" class="w-8 h-8 mr-3" alt="Import icon">
+    <h3 class="text-xl font-semibold text-gray-900">Energy Import Dependence</h3>
+  </div>
+  <p class="text-gray-700 text-sm mb-4">
+    Ensure at least <strong class="text-gray-900">{{ target_domestic }} %</strong> of energy is produced domestically by 2050.
+  </p>
+
+  <dl class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-4">
+    <div>
+      <dt class="font-medium text-gray-800">Consumption (2023)</dt>
+      <dd class="text-gray-600">{{ consumption_2023 }} Mtoe</dd>
+    </div>
+    <div>
+      <dt class="font-medium text-gray-800">Imports (2023)</dt>
+      <dd class="text-gray-600">{{ imports_2023 }} Mtoe</dd>
+    </div>
+    <div>
+      <dt class="font-medium text-gray-800">Import dependence</dt>
+      <dd class="text-red-600 font-bold">{{ import_share|round(1) }} %</dd>
+    </div>
+  </dl>
+
+  <p class="text-sm text-gray-700 mb-2">
+    Progress toward <span class="font-semibold text-gray-900">{{ target_domestic }} % domestic supply</span>:
+    <span class="font-semibold text-gray-900">{{ progress_import|round(1) }} %</span>
+  </p>
+
+  <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden mb-2">
+    <div
+      class="h-full"
+      style="
+        width: {{ progress_import }}%;
+        background-color: hsl({{ hue_import }}, 100%, 45%);
+      "
+    ></div>
+  </div>
+
+  <p class="text-xs text-gray-600">
+    Currently, <span class="font-semibold text-gray-900">{{ import_share|round(1) }} %</span> of the EU’s energy is imported.
+  </p>
+</div>
+
+    {# Electricity Share of Final Energy Demand (no baseline) #}
+{% set elec_current_year = 2022 %}
+{% set elec_current      = 23.0 %}
+{% set elec_target       = 50 %}
+{% set elec_progress     = (elec_current / elec_target) * 100 %}
+{% set elec_hue          = (elec_progress / 100) * 120 %}
+
+<div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+  <div class="flex items-center mb-2">
+    <img src="/static/icons/electricity.svg" class="w-8 h-8 mr-3" alt="Electricity icon">
+    <h3 class="text-xl font-semibold text-gray-900">Electricity in Final Energy Demand</h3>
+  </div>
+  <p class="text-gray-700 text-sm mb-4">
+    Supply half of the EU’s final energy demand with electricity by 2050.
+  </p>
+
+  <dl class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-4">
+    <div>
+      <dt class="font-medium text-gray-800">Current ({{ elec_current_year }})</dt>
+      <dd class="text-gray-600">{{ elec_current }} %</dd>
+    </div>
+    <div>
+      <dt class="font-medium text-gray-800">Target (2050)</dt>
+      <dd class="text-gray-600">{{ elec_target }} %</dd>
+    </div>
+    <div>
+      <dt class="font-medium text-gray-800">Progress</dt>
+      <dd class="text-green-600 font-bold">{{ elec_progress|round(1) }} %</dd>
+    </div>
+  </dl>
+
+  <p class="text-sm text-gray-700 mb-2">
+    You’re <span class="font-semibold text-gray-900">{{ elec_progress|round(1) }} %</span> of the way to the <span class="font-semibold text-gray-900">{{ elec_target }} %</span> goal.
+  </p>
+
+  <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden mb-2">
+    <div
+      class="h-full"
+      style="
+        width: {{ elec_progress }}%;
+        background-color: hsl({{ elec_hue }}, 100%, 45%);
+      "
+    ></div>
+  </div>
+
+  <p class="text-xs text-gray-600">
+    Achieved <span class="font-semibold text-gray-900">{{ elec_progress|round(1) }} %</span> progress toward the 2050 target.
+  </p>
+</div>
+
+
+  </div>
+</section>
+ 
+  {% endblock %}

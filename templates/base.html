@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Climate Watch - Climate Policy Reality Check</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YOUR_MEASUREMENT_ID', {
+    // anonymize_ip can help with GDPR compliance
+    'anonymize_ip': true,
+    // send_page_view false if you plan to fire manually
+    'send_page_view': true
+  });
+</script>
+
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Favicons & touch icons -->
+<link rel="apple-touch-icon" sizes="57x57" href="{{ url_for('static', filename='img/apple-icon-57x57.png') }}">
+<link rel="apple-touch-icon" sizes="60x60" href="{{ url_for('static', filename='img/apple-icon-60x60.png') }}">
+<link rel="apple-touch-icon" sizes="72x72" href="{{ url_for('static', filename='img/apple-icon-72x72.png') }}">
+<link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static', filename='img/apple-icon-76x76.png') }}">
+<link rel="apple-touch-icon" sizes="114x114" href="{{ url_for('static', filename='img/apple-icon-114x114.png') }}">
+<link rel="apple-touch-icon" sizes="120x120" href="{{ url_for('static', filename='img/apple-icon-120x120.png') }}">
+<link rel="apple-touch-icon" sizes="144x144" href="{{ url_for('static', filename='img/apple-icon-144x144.png') }}">
+<link rel="apple-touch-icon" sizes="152x152" href="{{ url_for('static', filename='img/apple-icon-152x152.png') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='img/apple-icon-180x180.png') }}">
+<link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='img/android-icon-192x192.png') }}">
+<link rel="icon" type="image/png" sizes="32x32"   href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="96x96"   href="{{ url_for('static', filename='img/favicon-96x96.png') }}">
+<link rel="icon" type="image/png" sizes="16x16"   href="{{ url_for('static', filename='img/favicon-16x16.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='img/manifest.json') }}">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="{{ url_for('static', filename='img/ms-icon-144x144.png') }}">
+
+
+    
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        section, div {
+            max-width: 100vw;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Navbar -->
+<nav class="fixed top-0 z-50 bg-white text-black px-6 py-4 shadow-lg w-full">
+    <div class="max-w-7xl mx-auto flex justify-between items-center w-full">
+        <!-- Logo -->
+        <a href="{{ url_for('home') }}" class="inline-flex items-center space-x-2">
+  <!-- pick the 32×32 or 48×48 for crispness -->
+  <img src="{{ url_for('static', filename='img/favicon-32x32.png') }}"
+       alt="ClimateWatch logo"
+       class="h-8 w-8"/>
+
+  <span class="text-2xl font-bold">
+    <span class="text-red-500">Climate</span><span class="text-blue-400">Watch</span>
+  </span>
+</a>
+
+        <!-- Navbar Links -->
+        <ul class="hidden md:flex space-x-6 items-center">
+            <!-- Emissions Dropdown with Alpine -->
+      <li class="relative" x-data="{ open: false }">
+        <button @click="open = !open" class="hover:text-red-500 focus:outline-none">
+          Emissions ▾
+        </button>
+        <ul x-show="open" @click.away="open = false" x-transition
+            class="absolute left-0 bg-white shadow-md text-black mt-2 py-2 rounded w-40 z-50">
+          <li><a href="{{ url_for('emissions') }}" class="block px-4 py-2 hover:bg-red-100">Graphs</a></li>
+          <li><a href="{{ url_for('query') }}" class="block px-4 py-2 hover:bg-red-100">Table</a></li>
+        </ul>
+      </li>
+
+            <li><a href="{{ url_for('targets') }}" class="hover:text-blue-400">Targets</a></li>
+            <li><a href="{{ url_for('about') }}" class="hover:text-blue-400">About</a></li>
+        </ul>
+
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn" class="md:hidden text-green-400 text-2xl focus:outline-none">
+            ☰
+        </button>
+    </div>
+</nav>
+
+
+    <!-- Page Content (no top padding) -->
+    <div class="w-full px-0 pt-0">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 text-gray-400">
+        © 2025 ClimateWatch.eu - Climate Policy Reality Check
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menu-btn')?.addEventListener('click', function () {
+            document.getElementById('mobile-menu')?.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>

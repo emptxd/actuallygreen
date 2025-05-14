@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Page Container -->
+<div class="min-h-screen bg-gradient-to-r from-blue-800 to-red-800 text-white">
+  <div class="mt-16 w-full px-4 py-8">
+
+ <!-- 1. Total Emissions Overview -->
+<section id="overview" class="mb-20">
+    <h2 class="text-3xl font-bold mb-4 text-center">EU-27 CO₂ Emissions Over Time</h2>
+  
+    <!-- Flourish Chart Embed -->
+    <div class="max-w-4xl mx-auto border border-gray-700 rounded-lg overflow-hidden shadow-lg mb-6">
+      <div class="flourish-embed flourish-chart" data-src="visualisation/23025069">
+        <script src="https://public.flourish.studio/resources/embed.js"></script>
+        <noscript>
+          <img src="https://public.flourish.studio/visualisation/23025069/thumbnail" width="100%" alt="chart visualization" />
+        </noscript>
+      </div>
+    </div>
+  
+    <p class="text-center max-w-2xl mx-auto text-gray-300">
+        Since 1990, the EU has reduced its CO₂ emissions by approximately 37.3%, from 4,635,248 kt to 2,907,204 kt in 2023.
+    </p>
+  </section>
+
+
+ <!-- 2. Sectoral Breakdown -->
+<section id="sectors" class="mb-20">
+    <h2 class="text-3xl font-bold mb-6 text-center">Sectoral Emissions Over Time</h2>
+  
+    <!-- Flourish Race Line Chart Embed -->
+    <div class="max-w-4xl mx-auto border border-gray-700 rounded-lg overflow-hidden shadow-lg mb-6">
+        <div 
+          class="flourish-embed flourish-chart w-full h-100" 
+          data-src="visualisation/23051369"
+        >
+          <script src="https://public.flourish.studio/resources/embed.js"></script>
+          <noscript>
+            <img
+              src="https://public.flourish.studio/visualisation/23051369/thumbnail"
+              width="100%"
+              alt="race line chart of sectoral emissions"
+            />
+          </noscript>
+        </div>
+      </div>
+  
+    <section class="mt-6 max-w-3xl mx-auto text-center text-gray-300">
+      <p>
+        This “race line” chart shows annual CO₂ emissions in the EU-27 by five major sectors from 1990 to today.
+      </p>
+      <ul class="list-disc list-inside text-left inline-block mt-4">
+        <li><strong>Energy</strong>: Fuel combustion for electricity and heat.</li>
+        <li><strong>Transport</strong>: Road, rail, aviation, and maritime transport.</li>
+        <li><strong>Industry</strong>: Manufacturing, construction, and processing emissions.</li>
+        <li><strong>Agriculture</strong>: Livestock and soil management emissions.</li>
+        <li><strong>Waste</strong>: Solid waste disposal and wastewater treatment.</li>
+      </ul>
+      <p class="mt-4">
+        Energy remains the largest source but has achieved the greatest cuts, while transport lags behind.
+      </p>
+    </section>
+  </section>
+  <!-- 3. Sector Shares (2023) -->
+<section id="sector-shares" class="mb-20">
+    <h2 class="text-3xl font-bold mb-6 text-center">2023 EU-27 CO₂ Emissions by Sector</h2>
+  
+    <!-- Flourish Bubble Chart Embed -->
+    <div class="max-w-3xl mx-auto border border-gray-700 rounded-lg overflow-hidden shadow-lg mb-6">
+      <div class="flourish-embed flourish-bubble-chart" data-src="visualisation/23052001">
+        <script src="https://public.flourish.studio/resources/embed.js"></script>
+        <noscript>
+          <img
+            src="https://public.flourish.studio/visualisation/23052001/thumbnail"
+            width="100%"
+            alt="bubble-chart visualization"
+          />
+        </noscript>
+      </div>
+    </div>
+  
+    <!-- Explanatory Subtext -->
+    <div class="max-w-3xl mx-auto text-gray-300 text-center">
+      <p class="mb-4">
+        Bubble area represents total CO₂ emissions (kt) by sector in 2023:
+      </p>
+      <ul class="list-disc list-inside text-left inline-block text-gray-300">
+        <li><strong>Energy (49%)</strong>: Power generation &amp; heat production.</li>
+        <li><strong>Transport (33%)</strong>: Road, air, rail &amp; shipping.</li>
+        <li><strong>Waste (8.5%)</strong>: Landfills, wastewater &amp; incineration.</li>
+        <li><strong>Agriculture (5.6%)</strong>: Livestock methane &amp; fertilized soils.</li>
+        <li><strong>Industry (4.4%)</strong>: Manufacturing, chemical &amp; construction processes.</li>
+      </ul>
+      <p class="mt-4">
+        This chart highlights where the EU’s emissions are most concentrated, guiding targeted policy action.
+      </p>
+    </div>
+  </section>
+  
+  
+  
+  
+
+  <!-- 4. Country-Level Performance -->
+<section id="countries" class="mb-20">
+  <h2 class="text-3xl font-bold mb-6 text-center">Country-Level Emissions (2023)</h2>
+
+  <!-- Flourish Map Embed -->
+  <div class="max-w-4xl mx-auto border border-gray-700 rounded-lg overflow-hidden shadow-lg mb-6">
+    <div class="flourish-embed flourish-map" data-src="visualisation/23131533">
+      <script src="https://public.flourish.studio/resources/embed.js"></script>
+      <noscript>
+        <img
+          src="https://public.flourish.studio/visualisation/23131533/thumbnail"
+          width="100%"
+          alt="map visualization"
+        />
+      </noscript>
+    </div>
+  </div>
+
+  <!-- Explanatory Subtext -->
+  <div class="max-w-4xl mx-auto text-gray-300 text-center">
+    <p class="mb-4">
+       In 2023, <strong>Germany</strong> led the EU-27 with <strong>740,673 kt</strong> of CO₂, followed by 
+      <strong>France</strong> at <strong>339,016 kt</strong>, <strong>Italy</strong> at <strong>331,153 kt</strong>, 
+      and <strong>Poland</strong> at <strong>315,780 kt</strong>. Together, these four countries accounted for nearly 
+      <strong>60 %</strong> of the EU-27’s total CO₂ emissions.
+    </p>
+    <p>
+      Emissions vary widely due to differences in energy mix, industrial capacity, and transport patterns. 
+      Smaller states like <strong>Cyprus</strong> and <strong>Luxembourg</strong> each contribute only a few percent, 
+      underscoring the uneven distribution of carbon footprints across the Union.
+    </p>
+  </div>
+</section>
+
+
+  
+<!-- Overview Stats -->
+<section class="py-16 bg-gradient-to-r from-blue-800 to-red-800 text-white">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold">Tracking Europe's Climate Progress</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-5xl mx-auto">
+      <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200 text-center">
+        <h3 class="text-lg font-semibold text-green-600">EU Carbon Reduction Target</h3>
+        <p class="text-4xl font-bold my-2 text-gray-900">55%</p>
+        <p class="text-sm text-gray-500">by 2030</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200 text-center">
+        <h3 class="text-lg font-semibold text-green-600">Current Reduction Status</h3>
+        <p class="text-4xl font-bold my-2 text-gray-900">37.3%</p>
+        <p class="text-sm text-gray-500">from 1990 levels</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200 text-center">
+        <h3 class="text-lg font-semibold text-green-600">Gap to Target</h3>
+        <p class="text-4xl font-bold my-2 text-gray-900">17.7%</p>
+        <p class="text-sm text-gray-500">requires acceleration</p>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="mt-12">
+      <a href="{{ url_for('targets') }}"
+         class="inline-block px-8 py-3 bg-white rounded-lg font-semibold transition">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-red-800">
+          Explore all EU Targets &rarr;
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

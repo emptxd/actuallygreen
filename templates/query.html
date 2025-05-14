@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-r from-blue-800 to-red-800 text-white">
+  <div class="mt-16 w-full px-4 py-8">
+
+    <h2 class="text-3xl font-bold mb-4 text-center">
+      CO₂ Emissions by Country &amp; Sector
+    </h2>
+
+    <!-- ▼ NEW EXPLANATION SECTION ▼ -->
+<div class="mx-auto mb-8 text-gray-300 px-4 max-w-full">
+  <p class="mb-4">
+    All values below are in <strong>tonnes of CO₂-equivalent (t CO₂-eq)</strong> per year.
+  </p>
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 list-disc list-inside">
+    <li>
+      <strong>Energy (supply):</strong> emissions from fuel combustion in power plants, refineries and energy infrastructure.
+    </li>
+    <li>
+      <strong>Industry:</strong> process-related CO₂ released during manufacture of cement, chemicals, metals, etc.
+    </li>
+    <li>
+      <strong>Agriculture:</strong> livestock enteric fermentation, manure management, crop burning and related farming activities.
+    </li>
+    <li>
+      <strong>LULUCF:</strong> net removals or emissions from land-use change, forestry management and soils.
+    </li>
+    <li>
+      <strong>Waste management:</strong> solid waste disposal, wastewater treatment and biological treatment processes.
+    </li>
+    <li>
+      <strong>Other:</strong> indirect CO₂, minor sources and unallocated residual emissions.
+    </li>
+  </ul>
+</div>
+<!-- ▲ END EXPLANATION SECTION ▲ -->
+
+    <!-- ▲ END EXPLANATION SECTION ▲ -->
+
+    <!-- Filter Form -->
+    <form method="get" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+      <select name="country" class="bg-gray-800 p-2 rounded text-white">
+        <option value="">All Countries</option>
+        {% for c in countries %}
+          <option value="{{ c }}" {% if c==selected_country %}selected{% endif %}>{{ c }}</option>
+        {% endfor %}
+      </select>
+
+      <select name="year_from" class="bg-gray-800 p-2 rounded text-white">
+        {% for y in years %}
+          <option value="{{ y }}" {% if y==year_from %}selected{% endif %}>From {{ y }}</option>
+        {% endfor %}
+      </select>
+
+      <select name="year_to" class="bg-gray-800 p-2 rounded text-white">
+        {% for y in years %}
+          <option value="{{ y }}" {% if y==year_to %}selected{% endif %}>To {{ y }}</option>
+        {% endfor %}
+      </select>
+
+      <button type="submit" class="bg-blue-500 hover:bg-blue-400 text-black py-2 rounded">
+        Apply Filters
+      </button>
+    </form>
+
+    <!-- Results Table -->
+    <div class="overflow-x-auto">
+      <div class="max-h-[38rem] overflow-y-auto">
+        <table class="min-w-full bg-gray-800 text-gray-200 rounded-lg">
+          <thead class="bg-gray-700 sticky top-0 z-10">
+            <tr>
+              <th class="px-4 py-2">Year</th>
+              <th class="px-4 py-2">Country</th>
+              <th class="px-4 py-2">Total</th>
+              {% for sec in sectors %}
+                <th class="px-4 py-2">{{ sec }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in summary %}
+            <tr class="border-b border-gray-700">
+              <td class="px-4 py-2">{{ row.year }}</td>
+              <td class="px-4 py-2">{{ row.country }}</td>
+              <td class="px-4 py-2 text-right">{{ "{:,.0f}".format(row['Total']) }}</td>
+              {% for sec in sectors %}
+                <td class="px-4 py-2 text-right">{{ "{:,.0f}".format(row[sec]) }}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
