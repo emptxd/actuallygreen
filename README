@@ -1,0 +1,27 @@
+**ClimateWatch** is an interactive website that tracks the European Union’s climate targets and visualizes their progress using real emissions data. It aims to make climate policy more transparent and accessible by combining data-driven insights with intuitive design.
+
+## 🔗 Live Website  
+You can explore the project online at:  
+➡️ **https://actuallygreen.onrender.com/**
+
+## 📦 Installation (for local development)
+
+This project uses Flask and requires Python 3.9 or higher. A full list of dependencies is included in `requirements.txt`.
+
+## Project Structure
+actuallygreen/
+│
+├── backend/
+│   ├── app.py                # Main Flask app
+│   ├── populate_summary.py   # Script to build the database
+│   ├── data.db               # SQLite database (auto-generated)
+├── templates/            # Jinja2 HTML templates
+└── static/               # CSS, icons, images
+│
+├── requirements.txt
+└── README.md
+
+## 🌐 GitHub Repository
+Source code and development history are publicly available:
+📂 https://github.com/emptxd/actuallygreen/
+
